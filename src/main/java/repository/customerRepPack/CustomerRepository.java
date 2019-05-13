@@ -1,7 +1,6 @@
 package repository.customerRepPack;
 
 import domain.CustomerDetails;
-import repository.CustomerRep;
 
 import java.util.*;
 

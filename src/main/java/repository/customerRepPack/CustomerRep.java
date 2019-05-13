@@ -1,6 +1,7 @@
-package repository;
+package repository.customerRepPack;
 
 import domain.CustomerDetails;
+import repository.Irepository;
 
 import java.util.List;
 

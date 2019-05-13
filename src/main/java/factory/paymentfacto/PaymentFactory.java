@@ -1,13 +1,14 @@
-package factory;
+package factory.paymentfacto;
 
-import Builder.paymentbuilders.DailyPayment;
-import Builder.paymentbuilders.MounthlyPayments;
-import Builder.paymentbuilders.WeeklyPayment;
-import Builder.paymentbuilders.DriverPayInt;
+import Builder.paymentbuilders.DriverPayment;
+import domain.payPack.DailyPayment;
+import domain.payPack.MounthlyPayments;
+import domain.payPack.WeeklyPayment;
+
 
 public class PaymentFactory {
 
-    public static DriverPayInt getDriverPayInt(String valeu)
+    public static DriverPayment getDriverPayInt(String valeu)
     {
         if(valeu.equalsIgnoreCase("week"))
         {
@@ -19,6 +20,7 @@ public class PaymentFactory {
         if(valeu.equalsIgnoreCase("day"))
 
         {return new DailyPayment();}
-    else return null;
+        else return null;
+
     }
 }

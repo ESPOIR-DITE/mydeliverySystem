@@ -1,12 +1,15 @@
-package Builder.paymentbuilders;
+package domain.payPack;
 
-public class MounthlyPayments implements DriverPayInt {
+import Builder.paymentbuilders.DriverPayment;
+import Builder.paymentbuilders.DriverPaymentProduct;
 
+public class WeeklyPayment implements DriverPayment {
     DriverPaymentProduct driverPaymentProduct;
 
-    public MounthlyPayments() {
+    public WeeklyPayment() {
         driverPaymentProduct =new DriverPaymentProduct();
     }
+
 
     @Override
     public void distance(int distance) {
@@ -15,6 +18,7 @@ public class MounthlyPayments implements DriverPayInt {
 
     @Override
     public void paymentRate(int rate) {
+
         driverPaymentProduct.setRate(rate);
     }
 

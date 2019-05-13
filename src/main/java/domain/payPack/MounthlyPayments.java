@@ -1,11 +1,14 @@
-package Builder.paymentbuilders;
+package domain.payPack;
 
-public class DailyPayment implements DriverPayInt {
+import Builder.paymentbuilders.DriverPayment;
+import Builder.paymentbuilders.DriverPaymentProduct;
+
+public class MounthlyPayments implements DriverPayment {
 
     DriverPaymentProduct driverPaymentProduct;
-    public DailyPayment()
-    {
-        driverPaymentProduct = new DriverPaymentProduct();
+
+    public MounthlyPayments() {
+        driverPaymentProduct =new DriverPaymentProduct();
     }
 
     @Override
@@ -19,8 +22,8 @@ public class DailyPayment implements DriverPayInt {
     }
 
     @Override
-    public void numberOfOrder(int numberOfOrder) {
-        driverPaymentProduct.setNumberOfOrder(numberOfOrder);
+    public void numberOfOrder(int number) {
+        driverPaymentProduct.setNumberOfOrder(number);
     }
 
     @Override

@@ -31,15 +31,16 @@ public class DriverPaymentProduct {
     }
     public double getSalary()
     {
-        return salary;
+        return salary= rate*numberOfOrder;
     }
 
     @Override
     public String toString() {
-        return "Driver Pay" +"\n"+
-                "rate: " + rate +"\n"+
-                "numberOfOrder: " + numberOfOrder +"\n"+
-                " salary: " + salary+"\n"+"Distance"+distance +"\n"
+        return "\nDriver Pay" +""+"\n------------\n"+
+                "rate:           " + rate +"\n"+
+                "numberOfOrder:  " + numberOfOrder +"\n"+
+                "salary:         "+ getSalary()+"\n"+
+                "Distance        "+distance +"\n"
                 ;
     }
 }
