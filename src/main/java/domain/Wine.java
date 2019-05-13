@@ -1,48 +1,54 @@
 package domain;
 
-import Builder.itemBuilder.ItemInterface;
 import Builder.itemBuilder.ItemProduct;
+import Builder.itemBuilder.Alcohol;
 
-public class Gin implements ItemInterface {
-
+public class Wine extends Alcohol  //THIS IS THE CRONCRET PRODUCT THROUGH ALCOHOL CLASS IN THE BUILDER PATTERN.
+{
     ItemProduct itemProduct;
 
-    public Gin() {
-        itemProduct= new ItemProduct();
+    public Wine()
+    {
+        itemProduct=new ItemProduct();
     }
 
     @Override
-    public void buildItemNumber(String number) {
+    public String percentageOfAlcohol() {
+        return "18%";
+    }
 
-        itemProduct.setItemNumber(number);
+    @Override
+    public void buildItemNumber(String itemNumber) {
+
+        itemProduct.setItemNumber(itemNumber);
     }
 
     @Override
     public void buildItemName(String name) {
-
         itemProduct.setName(name);
+
     }
 
     @Override
     public void buildItemSize(char size) {
-
         itemProduct.setSize(size);
+
     }
 
     @Override
     public void buildItemDescription(String description) {
+        itemProduct.setDescription(description+" \n"+percentageOfAlcohol());
 
-        itemProduct.setDescription(description);
     }
 
     @Override
     public void buildItemPrice(double price) {
-
         itemProduct.setPrice(price);
-    }
 
-    @Override
-    public ItemProduct getItemProduct() {
+    }
+    public ItemProduct getItemProduct()
+    {
         return itemProduct;
     }
 }
+

@@ -5,7 +5,7 @@ public class Item {
     private int id;
     private String name;
     private String expireingDate;
-    private char size='N';
+    private char size;
     private String description;
 
     public Item() {
@@ -19,7 +19,7 @@ public class Item {
         this.description = description;
     }
 
-    public int getId() {
+   public int getId() {
         return id;
     }
 
@@ -69,7 +69,5 @@ public class Item {
                 ", description='" + description + '\'' +
                 '}';
     }
-    public Item getItem(){
-        return new Item();
-    }
+
 }

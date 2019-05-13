@@ -3,16 +3,16 @@ package domain;
 import Builder.itemBuilder.ItemInterface;
 import Builder.itemBuilder.ItemProduct;
 
-public class Snaks implements ItemInterface {
-
+public class Cigarette implements ItemInterface  {
     ItemProduct itemProduct;
 
-    public Snaks() {
-        itemProduct=new ItemProduct();
+    public Cigarette() {
+        itemProduct = new ItemProduct();
     }
 
     @Override
     public void buildItemNumber(String number) {
+
         itemProduct.setItemNumber(number);
     }
 
