@@ -1,19 +1,18 @@
-package domain;
+package domain.itemDomain;
 
 import Builder.itemBuilder.ItemInterface;
 import Builder.itemBuilder.ItemProduct;
 
-public class Juice implements ItemInterface  {
+public class Snaks implements ItemInterface {
 
     ItemProduct itemProduct;
 
-    public Juice() {
-        itemProduct= new ItemProduct();
+    public Snaks() {
+        itemProduct=new ItemProduct();
     }
 
     @Override
     public void buildItemNumber(String number) {
-
         itemProduct.setItemNumber(number);
     }
 

@@ -1,4 +1,4 @@
-package domain;
+package domain.itemDomain;
 
 import Builder.itemBuilder.ItemInterface;
 import Builder.itemBuilder.ItemProduct;

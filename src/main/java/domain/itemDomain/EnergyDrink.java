@@ -1,25 +1,18 @@
-package domain;
+package domain.itemDomain;
 
+import Builder.itemBuilder.ItemInterface;
 import Builder.itemBuilder.ItemProduct;
-import Builder.itemBuilder.Alcohol;
 
-public class Whisky extends Alcohol {
+public class EnergyDrink implements ItemInterface {
 
     ItemProduct itemProduct;
-    private String percentage="42%";
 
-    public Whisky() {
-        itemProduct =new ItemProduct();
-    }
-
-    @Override
-    public String percentageOfAlcohol() {
-        return percentage;
+    public EnergyDrink() {
+        itemProduct= new ItemProduct();
     }
 
     @Override
     public void buildItemNumber(String number) {
-
         itemProduct.setItemNumber(number);
     }
 
@@ -38,7 +31,7 @@ public class Whisky extends Alcohol {
     @Override
     public void buildItemDescription(String description) {
 
-        itemProduct.setDescription(description+"\n"+percentageOfAlcohol());
+        itemProduct.setDescription(description);
     }
 
     @Override

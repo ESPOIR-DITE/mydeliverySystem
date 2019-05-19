@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ItemRepo extends Irepository<ItemProduct, String>
 {
-    List<ItemProduct>getItems();
+   // List<ItemProduct>getItems();
 
 }

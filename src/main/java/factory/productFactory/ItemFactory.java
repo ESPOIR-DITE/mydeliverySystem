@@ -1,8 +1,7 @@
 package factory.productFactory;
 
 import Builder.itemBuilder.ItemInterface;
-import domain.*;
-
+import domain.itemDomain.*;
 
 
 public class ItemFactory {

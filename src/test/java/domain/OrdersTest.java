@@ -1,12 +1,10 @@
 package domain;
 
-import configPack.AppConfig;
+import Builder.orderBuilder.Orders;
 import configPack.ConfigOrder;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import static org.junit.Assert.*;
 
 public class OrdersTest {
     ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ConfigOrder.class);

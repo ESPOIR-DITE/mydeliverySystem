@@ -1,4 +1,4 @@
-package domain;
+package domain.itemDomain;
 
 import Builder.itemBuilder.ItemProduct;
 import Builder.itemBuilder.Alcohol;

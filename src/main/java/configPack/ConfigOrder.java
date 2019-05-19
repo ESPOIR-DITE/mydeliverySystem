@@ -1,6 +1,6 @@
 package configPack;
 
-import domain.Orders;
+import Builder.orderBuilder.Orders;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

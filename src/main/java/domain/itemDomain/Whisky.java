@@ -1,18 +1,25 @@
-package domain;
+package domain.itemDomain;
 
-import Builder.itemBuilder.ItemInterface;
 import Builder.itemBuilder.ItemProduct;
+import Builder.itemBuilder.Alcohol;
 
-public class Snaks implements ItemInterface {
+public class Whisky extends Alcohol {
 
     ItemProduct itemProduct;
+    private String percentage="42%";
 
-    public Snaks() {
-        itemProduct=new ItemProduct();
+    public Whisky() {
+        itemProduct =new ItemProduct();
+    }
+
+    @Override
+    public String percentageOfAlcohol() {
+        return percentage;
     }
 
     @Override
     public void buildItemNumber(String number) {
+
         itemProduct.setItemNumber(number);
     }
 
@@ -31,7 +38,7 @@ public class Snaks implements ItemInterface {
     @Override
     public void buildItemDescription(String description) {
 
-        itemProduct.setDescription(description);
+        itemProduct.setDescription(description+"\n"+percentageOfAlcohol());
     }
 
     @Override

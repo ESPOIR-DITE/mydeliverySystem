@@ -1,5 +1,7 @@
 package repository.customerRepPack;
 
+import Builder.itemBuilder.ItemInterface;
+import Builder.itemBuilder.ItemProduct;
 import domain.CustomerDetails;
 
 import java.util.*;
@@ -20,11 +22,13 @@ public class CustomerRepository implements CustomerRep
         return rep;
     }
 
-    @Override
+
     public CustomerDetails create(CustomerDetails customerDetails) {
         this.customerDetailsList.add(customerDetails);
         return customerDetails;
     }
+
+
 
     @Override
     public CustomerDetails update(CustomerDetails customerDetails) {
@@ -46,6 +50,22 @@ public class CustomerRepository implements CustomerRep
         }
         return null;
     }
+
+    @Override
+    public ItemProduct readAll(String type) {
+        return null;
+    }
+
+
+    public ItemInterface readAll() {
+        return null;
+    }
+
+    @Override
+    public CustomerDetails insert(CustomerDetails customerDetails) {
+        return null;
+    }
+
     @Override
     public List<CustomerDetails> getAll() {
         return customerDetailsList;

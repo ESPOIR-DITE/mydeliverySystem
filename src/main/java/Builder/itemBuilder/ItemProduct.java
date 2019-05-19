@@ -51,12 +51,11 @@ public class ItemProduct    //THIS IS THE ITEM PRODUCT IN THE BUILDER PATTERN. W
 
     @Override
     public String toString() {
-        return "ItemProduct{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", size=" + size +
-                ", ItemNumber='" + ItemNumber + '\'' +
-                "PRICE: "+price+
-                '}';
+        return "ItemProduct\n----------\n" +
+                "\nname:        " + name +
+                "\ndescription: " + description +
+                "\nsize:        " + size +
+                "\nItemNumber:  " + ItemNumber +
+                "\nPRICE:       " + price;
     }
 }

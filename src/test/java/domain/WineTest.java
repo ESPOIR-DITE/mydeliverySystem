@@ -1,6 +1,7 @@
 package domain;
 
 import Builder.itemBuilder.ItemInterface;
+import domain.itemDomain.Wine;
 import factory.productFactory.ItemFactory;
 import org.junit.Before;
 import org.junit.Test;

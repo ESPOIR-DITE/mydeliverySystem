@@ -1,13 +1,14 @@
-package domain;
+package domain.itemDomain;
 
 import Builder.itemBuilder.ItemInterface;
 import Builder.itemBuilder.ItemProduct;
 
-public class Cigarette implements ItemInterface  {
+public class Juice implements ItemInterface  {
+
     ItemProduct itemProduct;
 
-    public Cigarette() {
-        itemProduct = new ItemProduct();
+    public Juice() {
+        itemProduct= new ItemProduct();
     }
 
     @Override
