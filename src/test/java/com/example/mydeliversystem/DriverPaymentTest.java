@@ -1,8 +1,6 @@
 package com.example.mydeliversystem;
 
-import configPack.AppConfig;
-import configPack.ConfigDriverPayment;
-import domain.DriverPayment;
+import com.Builder.driverPay.DriverPayment;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -10,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import static org.junit.Assert.*;
 
 public class DriverPaymentTest {
-    ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+   /** ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
     DriverPayment driverPayment = applicationContext.getBean(DriverPayment.class);
 
     @Test
@@ -18,5 +16,5 @@ public class DriverPaymentTest {
         int result=driverPayment.pay(20);
         assertEquals(23,result);
         System.out.println("the result is: "+result);
-    }
+    }**/
 }
