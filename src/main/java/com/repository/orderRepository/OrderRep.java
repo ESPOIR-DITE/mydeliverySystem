@@ -71,7 +71,7 @@ public class OrderRep implements OrderRepositoryIn
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return read("Your update has been saved\n"+ord.getOrderNumeber());
+        return read(ord.getOrderNumeber());
     }
 
     @Override

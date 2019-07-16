@@ -25,7 +25,8 @@ public class Main {
     {
 
         System.out.println("ESPOIR");
-        return itemClass.readAlll();
+       // return itemClass.readAlll();
+        return null;
     }
     @Bean
     @GetMapping("/CUSTOMER")
@@ -40,7 +41,7 @@ public class Main {
     @ResponseBody
     public void readOrder()/**we need to specify which it we want to insert by sending*/
     {
-        orderServices.readAlll();
+       // orderServices.read(1000);
 
     }
 

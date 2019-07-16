@@ -12,6 +12,11 @@ public class WeeklyPayment implements DriverPayment {
 
 
     @Override
+    public void payCode(String payCode) {
+        driverPaymentProduct.setPayCode(payCode);
+    }
+
+    @Override
     public void distance(int distance) {
         driverPaymentProduct.setDistance(distance);
     }
@@ -25,6 +30,21 @@ public class WeeklyPayment implements DriverPayment {
     @Override
     public void numberOfOrder(int number) {
         driverPaymentProduct.setNumberOfOrder(number);
+    }
+
+    @Override
+    public void paymentType() {
+        driverPaymentProduct.setPayType("weekly");
+    }
+
+    @Override
+    public void buildPayDate(String date) {
+        driverPaymentProduct.setPayDate(date);
+    }
+
+    @Override
+    public void buildDriverNumber(String driverNumber) {
+        driverPaymentProduct.setDriverBumber(driverNumber);
     }
 
     @Override

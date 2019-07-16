@@ -30,8 +30,10 @@ public class CashierRep implements CahierInterface {
     CashierFactory cashierFactory;
     ApplicationContext ctx2 = new AnnotationConfigApplicationContext(FactorycashierConfig.class);
 
+
     private CashierRep()
     {
+        //cashierFactory.getCashier("cashier");
         try {
             this.conne = DriverManager.getConnection(url,user,password);
         } catch (SQLException e) {
@@ -79,9 +81,13 @@ public class CashierRep implements CahierInterface {
     }
 
     @Override
-    public void delete(String s) {
+    public void delete(String s) {// this method should read what is supposed to be deleted before deleting.
+        int s2=Integer.parseInt(s);
+        System.out.println("This record was deliter!!!");
+        read(s);
+
         try {
-            String sql="DELETE CASHIER WHERE( ID="+s+");";
+            String sql="DELETE from CASHIER  WHERE ID ="+s2+";";
                 PreparedStatement statement=conne.prepareStatement(sql);
             statement.executeUpdate();
             System.out.println("one row deleted");
@@ -95,7 +101,7 @@ public class CashierRep implements CahierInterface {
         cashierFactory=(CashierFactory)ctx2.getBean("getCashier");
         CashierInt cashier=cashierFactory.getCashier("cashier");
 
-        int s2=Integer.parseInt(s);
+        //int s2=Integer.parseInt(s);
         try {
             String sql="select * from CASHIER WHERE ID="+s+";";
             PreparedStatement statement=conne.prepareStatement(sql);
@@ -130,6 +136,7 @@ public class CashierRep implements CahierInterface {
             ResultSet rs=statement.executeQuery();
             while(rs.next())
             {
+
                 cashier.setId(Integer.parseInt(rs.getString("1")));
                 cashier.setName(rs.getString("2"));
                 cashier.setSurName(rs.getString("3"));
@@ -164,7 +171,7 @@ public class CashierRep implements CahierInterface {
         return highValeu;
 
     }
-    public ArrayList<CashierProduct> getAll()
+    public ArrayList getAll()
     {
         ArrayList<CashierProduct>myList=new ArrayList<>();
         ArrayList<String>myList2=new ArrayList<>();
@@ -179,11 +186,10 @@ public class CashierRep implements CahierInterface {
             ResultSet rs=statement.executeQuery();
             while(rs.next())
             {
-
-                int one =rs.getInt(1);
-                String two=rs.getString(2);
-                String tree=rs.getString(3);
-                myList2.add(one+" "+two+" "+tree);
+                cashier.buildId(rs.getInt(1));
+                cashier.buildName(rs.getString(2));
+                cashier.buildSurname(rs.getString(3));
+                myList2.add(cashier.getCashier().toString());
                 //myList.add(cashier.getCashier());
 
 
@@ -191,11 +197,12 @@ public class CashierRep implements CahierInterface {
         {
             e.printStackTrace();
         }
+        /**
         for (int i=0;i<myList2.size();i++)
         {
             System.out.println(myList2.get(i));
-        }
-        return myList;
+        }*/
+        return myList2;
 
     }
 }

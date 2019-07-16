@@ -4,10 +4,11 @@ import com.Builder.orderBuilder.OrderInt;
 import com.Builder.orderBuilder.Orders;
 import com.factory.domain.orderFactory.OrderFacto;
 import com.repository.orderRepository.OrderRep;
-import com.service.IOrder;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+
+import java.util.ArrayList;
 
 public class OrderServices implements IOrder {
     @Autowired
@@ -41,21 +42,20 @@ public class OrderServices implements IOrder {
     }
 
     @Override
-    public void delete(ID id) {
+    public void delete(String id) {
 
     }
 
     @Override
-    public Object read(ID id) {
+    public Object read(String id) {
         return null;
     }
 
     @Override
-    public Object readAlll()
-    {
-        //orderRep.readAll("nothing");
-        return orderRep.readAll("nothing");
+    public ArrayList readAlll() {
+        return null;
     }
+    /**
     public void insertRow(Orders orders)
     {
         setterObject.buildOrderNumber(orders.getOrderNumeber());
@@ -69,5 +69,5 @@ public class OrderServices implements IOrder {
         setterObject.buildOrderCompleted(orders.isOrderCompleted());
         System.out.println(orderRep.insertAll(setterObject.getOrders()));
 
-    }
+    }*/
 }

@@ -12,9 +12,9 @@ import java.util.StringTokenizer;
 public class CustomerPayRep implements CustomerRepInt  {
 
     private String url="jdbc:mysql://localhost:3306/delivery_system?autoReconnect=true&useSSL=false";
-    String user="root";
-    String password="";
-    Connection conne;
+    private String user="root";
+    private String password="";
+    private Connection conne;
     /**
      * getting the factory object to build with
      */

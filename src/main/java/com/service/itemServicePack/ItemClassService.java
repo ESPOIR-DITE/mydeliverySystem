@@ -2,12 +2,12 @@ package com.service.itemServicePack;
 
 import com.Builder.itemBuilder.ItemProduct;
 import com.sun.xml.internal.bind.v2.model.core.ID;
-import com.repository.ItemRep.ItemRepo;
-import com.service.itemServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
 
 /**
  * THIS CLASS IS GOING TO BE USED BY MANY CLASSES THAT IMPLEMENT @ ItemInterface
@@ -50,19 +50,19 @@ public class ItemClassService implements itemServiceInt {
     }
 
     @Override
-    public void delete(ID id)/**********I THINK THIS METHOD SHOULD RETURN A STRING OF CONFIRMATION IF THE **/
+    public void delete(String id)/**********I THINK THIS METHOD SHOULD RETURN A STRING OF CONFIRMATION IF THE **/
     {
         itemClass.delete(id);
     }
     @Override
-    public ItemProduct read(ID id)
+    public ItemProduct read(String id)
     {
         return itemClass.read(id);
     }
 
     @RequestMapping("/readAll")
     @Override
-    public ItemProduct readAlll()
+    public ArrayList readAlll()
     {
         return null;
                 //itemRepo.readAll("Juice");

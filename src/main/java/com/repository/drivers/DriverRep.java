@@ -44,16 +44,18 @@ public class DriverRep implements DriverRepInt {
     @Override
     public DriverProduct create(DriverProduct driver) {
 
+        int driverNumber=getItemNumber();
+        String getDriverNumber=""+driverNumber+"".trim();
         try {
             String sql="INSERT INTO DRIVER(DRIVER_CODE,NAME,SURNAME,ADDRESS,EMAIL,PHONE_NUMBER,STATE)" +
-                    " VALUES ('"+getItemNumber()+"','"+driver.getName()+"','"+driver.getSurName()+"','"+driver.getAddress()+"','"+ driver.getEmailAddress()+"','"+driver.getPhoner_Number()+"','"+driver.getAvaillable()+"');";
+                    " VALUES ('"+driverNumber+"','"+driver.getName()+"','"+driver.getSurName()+"','"+driver.getAddress()+"','"+ driver.getEmailAddress()+"','"+driver.getPhoner_Number()+"','"+driver.getAvaillable()+"');";
             PreparedStatement statement=conne.prepareStatement(sql);
             statement.executeUpdate();
             System.out.println("one row inserted in Item table");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return read(getDriverNumber);
     }
 
     /**when updating we dont need to update the availability of a driver that should change automatically

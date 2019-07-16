@@ -11,10 +11,8 @@ public class Cashier implements CashierInt {
     }
     @Override
     public void buildName(String name) {
-
         cashierProduct.setName(name);
     }
-
     @Override
     public void buildSurname(String surname) {
         cashierProduct.setSurName(surname);

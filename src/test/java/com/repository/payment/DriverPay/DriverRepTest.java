@@ -36,16 +36,15 @@ public class DriverRepTest {
         driver=driverRep.getDriverRep("driverRep");
         Assert.assertNotNull(driverRep);
         Driver driverP=driverFactory.getDriver("driver");
-
-        driverP.buildName("JOSE");
-        driverP.buildAddress("KGA");
-        driverP.buildavaillable('y');
+        driverP.buildName("JOSEPH");
+        driverP.buildAddress("KANANGA");
+        driverP.buildavaillable('N');
         driverP.buildSurName("BUDIS");
         driverP.buildEmailAddress("google.fr");
         driverP.buildPhone_number("34353523");
 
 
-        driver.create(driverP.getDriver());
+        System.out.println(driver.create(driverP.getDriver()).toString());
     }
 
     @Test

@@ -1,4 +1,6 @@
 package com.repository.payment;
 
-public interface PaymentInt {
+import com.repository.Irepository;
+
+public interface PaymentInt<D, S> extends Irepository {
 }

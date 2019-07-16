@@ -31,8 +31,8 @@ public class CashierProduct {
     }
     @Override
     public String toString() {
-        return "    Cashier\n   ------\n" +
-                "   name:    " + name +
+        return "  \n     Cashier\n   ------" +
+                "\n name:    " + name +
                 "\n surName: " + surName +
                 "\n id:      " + id;
     }
