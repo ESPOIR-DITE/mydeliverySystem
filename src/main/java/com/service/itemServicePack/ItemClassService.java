@@ -1,9 +1,15 @@
 package com.service.itemServicePack;
 
 import com.Builder.itemBuilder.ItemProduct;
+import com.Builder.itemBuilder.drink.noAlcoholProduct.NoAlcoholicProduct;
+import com.configPack.repositoryController.NonAlcolRepConfig;
+import com.factory.repository.NonAlcoholRepFact;
+import com.repository.ItemRep.noAlcoholRepository.NoAlcoholRepositoryClass;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,52 +25,51 @@ import java.util.ArrayList;
 @Service("ItemService")
 public class ItemClassService implements itemServiceInt {
 
-    @Autowired
-    @Qualifier("serveItem1")
-    private  ItemClassService itemClass;
-   // private static ItemRepo itemRepo=ItemRepository.getInstance();
+    private static ItemClassService itemClassService=null;
 
-    /**  private ItemClassService()
-    {
-       // this.itemRepo=ItemInterface;
+    NonAlcoholRepFact nonAlcoholRepFact;
+    NoAlcoholRepositoryClass noAl;
+    ApplicationContext ctx = new AnnotationConfigApplicationContext(NonAlcolRepConfig.class);
 
+
+    private ItemClassService() {
+        nonAlcoholRepFact = (NonAlcoholRepFact) ctx.getBean("nonRep");
+        noAl = nonAlcoholRepFact.getRepNonAlco("nonAlcohol");
     }
 
-   public static ItemClassService getItemClass()
+    public static ItemClassService getItemService()
     {
-        if(itemClass==null)
+        if(itemClassService==null)
         {
-            itemClass=new ItemClassService();
+            itemClassService=new ItemClassService();
         }
-        return itemClass;
-    }*/
+        return itemClassService;
+    }
+
 
     @Override
-    public ItemProduct create(ItemProduct itemProduct) {
-        return null;
+    public NoAlcoholicProduct create(NoAlcoholicProduct noAlcoholicProduct) {
+        return noAl.create(noAlcoholicProduct);
     }
 
     @Override
-    public ItemProduct update(ItemProduct itemProduct) {
-        return this.itemClass.update(itemProduct);
+    public NoAlcoholicProduct update(NoAlcoholicProduct noAlcoholicProduct) {
+        return noAl.update(noAlcoholicProduct);
     }
 
     @Override
-    public void delete(String id)/**********I THINK THIS METHOD SHOULD RETURN A STRING OF CONFIRMATION IF THE **/
-    {
-        itemClass.delete(id);
-    }
-    @Override
-    public ItemProduct read(String id)
-    {
-        return itemClass.read(id);
+    public void delete(String id) {
+        noAl.delete(id);
+
     }
 
-    @RequestMapping("/readAll")
     @Override
-    public ArrayList readAlll()
-    {
-        return null;
-                //itemRepo.readAll("Juice");
+    public NoAlcoholicProduct read(String id) {
+        return noAl.read(id);
+    }
+
+    @Override
+    public ArrayList readAlll() {
+        return noAl.getAll();
     }
 }

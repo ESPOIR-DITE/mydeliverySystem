@@ -58,13 +58,13 @@ public class ClassicProduct {
 
     @Override
     public String toString() {
-        return "ClassicProduct{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", ItemNumber='" + ItemNumber + '\'' +
-                ", price=" + price +
-                ", Flavor='" + Flavor +
-                "ITEM CATEGORY:"+ category
+        return "ClassicProduct" +"\n-------------"+
+                "\nname:"          + name +
+                "\ndescription:"   + description +
+                "\nItemNumber:"    + ItemNumber +
+                "\nprice:"         + price +
+                "\nFlavor:"        + Flavor +
+                "\nITEM CATEGORY:" + category
                 ;
     }
 }

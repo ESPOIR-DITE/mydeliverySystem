@@ -47,6 +47,7 @@ public class NoAlcoholRepositoryClass implements NoAlcoholRepository {
     public NoAlcoholicProduct create(NoAlcoholicProduct noAlcoholicProduct)
     {
         int ITEM_NUMBER=getItemNumber();
+        String ITEM_NUMBERSTR=""+ITEM_NUMBER+"".trim();
         String NAMES=noAlcoholicProduct.getItemName();
         String ITEM_CATEGORY=noAlcoholicProduct.getItemCategory();
        // String ALCOHOL_PERCENT=noAlcoholicProduct.getPercentageOfAlcohol();
@@ -62,9 +63,7 @@ public class NoAlcoholRepositoryClass implements NoAlcoholRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-        return noAlcoholicProduct;
+        return read(ITEM_NUMBERSTR);  // THIS METHOD IS RETURNING ANOTHER METHOD THAT IS READING THE SAME DATA IS JUST ADDED TO THE DATABASE
     }
 
 
@@ -173,7 +172,7 @@ public class NoAlcoholRepositoryClass implements NoAlcoholRepository {
     {
         try {
 
-            String sql="SELECT MAX(ITEM_NUMBER) from ITEM ;";
+            String sql="SELECT MAX(ITEM_NUMBER) from nonalcohol_item ;";
             PreparedStatement statement=conne.prepareStatement(sql);
             ResultSet rs=statement.executeQuery();
             while (rs.next())

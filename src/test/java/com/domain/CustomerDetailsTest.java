@@ -3,6 +3,7 @@ package com.domain;
 import com.configPack.domainConf.CustomerConfig;
 import com.factory.domain.customerFactory.CustomerFactory;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -13,14 +14,17 @@ public class CustomerDetailsTest {
 
     CustomerFactory customerFactory=(CustomerFactory)ctx.getBean("getCustomer");
 
+    CustomerDetails x;
 
-
-
-
+    @Before
+    public void setUp()
+    {
+         x = customerFactory.getCustomer("customer");
+    }
 
     @Test
     public void getCustomer() {
-        CustomerDetails x = customerFactory.getCustomer("customer");
+
         //Assert.assertNotNull(x);
         //System.out.println(x.toString());
         Assert.assertNotNull(x);
@@ -28,7 +32,7 @@ public class CustomerDetailsTest {
     @Test
     public void getNameTest()
     {
-        CustomerDetails x = customerFactory.getCustomer("customer");
+       // CustomerDetails x = customerFactory.getCustomer("customer");
         x.customerNumber("409404");
         x.builName("espoir");
         x.builSurName("ditekemena");
@@ -40,5 +44,6 @@ public class CustomerDetailsTest {
 
         System.out.println(x.getCustomer().toString());
     }
+
 
 }

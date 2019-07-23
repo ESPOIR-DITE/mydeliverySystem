@@ -10,22 +10,19 @@ import com.repository.casher.CashierRep;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-
+@Service
 public class CashierServicer implements CashierServiceInt {
     private static CashierServicer cashier=null;
     CashierRep cashierRep;
     CashierRepFac cashierRepFac;
     ApplicationContext ctx = new AnnotationConfigApplicationContext(FactoryCashierConfigRep.class);
 
-
-
-
-
     private CashierServicer() {
-        cashierRepFac=(CashierRepFac)ctx.getBean("getCashier");
-        cashierRep =cashierRepFac.getCashier("cashierRep");
+        cashierRepFac=(CashierRepFac)ctx.getBean("getCashierRep");
+        cashierRep =cashierRepFac.getCashier("getCashier");
     }
 
     public static CashierServicer getCashier() {

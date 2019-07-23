@@ -28,15 +28,19 @@ public class CustomerRepositoryTest {
 
     CustomerFactory customerFactory=(CustomerFactory)ctx2.getBean("getCustomer");
 
+    CustomerRepository rep;
+    CustomerDetails x;
     @Before
     public void setUp() throws Exception {
+        rep=cfr.getCustomerRepository("customerRep");
+         x = customerFactory.getCustomer("customer");      //getting the customerDetails Object
     }
 
     @Test
     public void getInstance() {
         Assert.assertNotNull(cfr);
         CustomerRepository rep=cfr.getCustomerRepository("customerRep");
-        CustomerDetails x = customerFactory.getCustomer("customer");      //getting the customerDetails Object
+       // CustomerDetails x = customerFactory.getCustomer("customer");      //getting the customerDetails Object
 
 
         x.customerNumber("409404");
@@ -55,11 +59,10 @@ public class CustomerRepositoryTest {
         CustomerProduct custP=rep.read("409404");                               //returning the customer product object
         System.out.println(custP.toString());
     }
-
     @Test
     public void update() {
         CustomerRepository rep=cfr.getCustomerRepository("customerRep");
-        CustomerDetails x = customerFactory.getCustomer("customer");      //getting the customerDetails Object
+
 
 
         x.customerNumber("409405");
@@ -69,18 +72,15 @@ public class CustomerRepositoryTest {
         x.builAddress("21 rebeick str goodwood");
         x.buildPhone("3820498035");
         System.out.println(rep.update(x.getCustomer()).toString());
-
     }
-
     @Test
     public void delete() {
         CustomerRepository rep=cfr.getCustomerRepository("customerRep");
         rep.delete("409404");
-
     }
-
     @Test
     public void read() {
+        System.out.println(rep.read("409406").toString());
     }
 
     @Test
@@ -92,9 +92,7 @@ public class CustomerRepositoryTest {
        {
            System.out.println(myList.get(i));
        }
-
     }
-
     @Test
     public void getItemNumber() {
 

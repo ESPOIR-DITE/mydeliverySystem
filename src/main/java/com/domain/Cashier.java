@@ -4,7 +4,7 @@ import com.Builder.cashierBuilderPack.CashierInt;
 import com.Builder.cashierBuilderPack.CashierProduct;
 
 public class Cashier implements CashierInt {
-    CashierProduct cashierProduct;
+    private CashierProduct cashierProduct;
     public Cashier()
     {
         cashierProduct=new CashierProduct();

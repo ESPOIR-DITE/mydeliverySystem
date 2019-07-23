@@ -1,0 +1,50 @@
+package com.controller.cashier;
+
+import com.Builder.cashierBuilderPack.CashierProduct;
+import com.service.Cashier.CashierServicer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+
+@Component
+@RequestMapping("/cashier")
+public class CashierController {
+
+
+    CashierServicer cashierServicer;
+    @GetMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public CashierProduct create(@RequestParam CashierProduct product)
+    {
+        return cashierServicer.create(product);
+    }
+
+    @GetMapping("/read/{id}")
+    public CashierProduct read(@PathVariable(value = "id") String Id)
+    {
+        return cashierServicer.read(Id);
+    }
+
+    @GetMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public CashierProduct update(@RequestParam CashierProduct product)
+    {
+        return cashierServicer.update(product);
+    }
+    @PostMapping("/delete/{id}")
+    public void delete(@PathVariable(value = "id") String Id)
+    {
+        cashierServicer.delete(Id);
+    }
+
+    @RequestMapping("getAll")
+    public ArrayList getAll()
+    {
+        return cashierServicer.readAlll();
+    }
+}

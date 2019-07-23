@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FactoryCashierConfigRep {
        // CashierRepFac cashierRepFac;
-        @Bean(name="getCashier")
+        @Bean(name="getCashierRep")
         public CashierRepFac getService()
         {
             return new CashierRepFac();
